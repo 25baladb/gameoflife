@@ -1,3 +1,6 @@
+/**
+ determines if cells will live or survive the next generation
+ */
 public abstract class Rules {
     public abstract boolean shouldBeBorn(int liveNeighbors);
     public abstract boolean shouldSurvive(int liveNeighbors);

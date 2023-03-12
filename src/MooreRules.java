@@ -1,3 +1,7 @@
+/**
+ makes an array of booleans and determines if a cell will live/die based on its
+ index (# of live neighbors)
+ */
 public class MooreRules extends Rules {
     /* The MooreRules class specifies its rules using boolean arrays of length 9,
     where the index of each element that's set to true indicates the quantity
