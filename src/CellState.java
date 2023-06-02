@@ -1,4 +1,4 @@
-import java.util.Random;
+import processing.core.PApplet;
 public enum CellState {
 
     ALIVE,

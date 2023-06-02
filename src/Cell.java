@@ -30,6 +30,7 @@ public class Cell {
         this.size = size;
         this.row = row;
         this.column = column;
+        this.cellState = cellState;
         this.rules = rules;
     }
 
@@ -40,7 +41,7 @@ public class Cell {
     public void display(){
         if(cellState == CellState.ALIVE || cellState == CellState.WILL_DIE){
             Main.app.fill(0);
-        } else {
+        } else if(cellState == CellState.DEAD || cellState == CellState.WILL_REVIVE){
             Main.app.fill(255);
         }
         Main.app.rect(x, y, size, size);
@@ -50,10 +51,10 @@ public class Cell {
      toggles a clicked cell's state between alive and dead
      */
     public void handleClick() {
-        if (cellState == CellState.ALIVE) {
-                cellState = CellState.DEAD;
-        } else {
+        if (cellState == CellState.DEAD || cellState == CellState.WILL_REVIVE) {
                 cellState = CellState.ALIVE;
+        } else if(cellState == CellState.ALIVE || cellState == CellState.WILL_DIE){
+                cellState = CellState.DEAD;
         }
     }
 
@@ -95,6 +96,7 @@ public class Cell {
         if(cellState == CellState.ALIVE){
             alive--;
         }
+        System.out.println(alive);
         return alive;
     }
 
